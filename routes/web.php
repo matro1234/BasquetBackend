@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/todosCampeonatos', "App\Http\Controllers\CampeonatoController@mostrar");
+Route::post('/añadirDelegado',"App\Http\Controllers\DelegadoController@store");
+Route::get('/delegados', "App\Http\Controllers\DelegadoController@show");
+Route::post('/añadirEquipo',"App\Http\Controllers\EquipoController@store");
+Route::get('/',function(){
+    return "holamundo";
 });
+
+
