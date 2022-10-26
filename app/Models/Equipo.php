@@ -8,8 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
     use HasFactory;
-    protected $table="Equipo";
-    protected $primaryKey="CODEQUIPO";
-    protected $fillable = ["CODDELEGADO","NOMBREEQUIPO","CANTIDADJUGADORES","PUNTOS"];
-    public $timestamps = false;
+    protected $table = "equipos";
+
+    protected $fillable = [
+            "nombre",
+            "siglas",
+            "logo",
+            "cantidad",
+            "fechaCreacion",
+            "delegado_id",
+            "categoria_id"
+    ];
+    public function delegado(){
+        return $this->belongsTo(Delegado::class);
+    }
+    public function incripcion(){
+        return $this->hasOne(Inscripcion::class);
+    }
+    public function categoria(){
+        return $this->belongsTo(Categoria::class);
+    }
 }

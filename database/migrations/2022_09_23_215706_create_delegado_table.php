@@ -13,8 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('equipos', function (Blueprint $table) {
+        Schema::create('delegados', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',30);
+            $table->string('ci');
+            $table->string('email');
+            $table->bigInteger('celular');
+            $table->date('fechaNacimiento');
+            $table->string('nacionalidad');
+            $table->string('genero');
+
             $table->timestamps();
         });
     }
@@ -26,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipos');
+        Schema::dropIfExists('delegados');
     }
 };

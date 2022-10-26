@@ -10,4 +10,14 @@ class CampeonatoController extends Controller
     {
         return Campeonato::get();
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $input = $request->all();
+        $campeonato = Campeonato::find($id);
+        $campeonato->update($input);
+    
+        return \response()->json(["res" => false,"message" => "modificado correctamente"],200);
+    }
 }

@@ -8,8 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Delegado extends Model
 {
     use HasFactory;
-    protected $table="Delegado";
-    protected $primaryKey="CODDELEGADO";
-    protected $fillable = ["CODEQUIPO","CODCAMPEONATO","NOMBREDELEGADO","CIDELEGADO","FECHANACIMIENTO","NACIONALIDAD","CONTRASENA","CORREO"];
-    public $timestamps = false;
+    protected $table="delegados";
+    protected $fillable = [
+        "nombre",
+        "ci",   
+        "email",
+        "celular",
+        "fechaNacimiento",
+        "nacionalidad",
+        "genero"
+    ];
+    protected $hidden = ['created_at','updated_at'];
+
+    public function equipo(){
+        return $this->hasOne(Equipo::class);
+    }
 }
