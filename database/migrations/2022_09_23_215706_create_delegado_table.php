@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('fechaNacimiento');
             $table->string('nacionalidad');
             $table->string('genero');
-
+            $table->string("api_token")->nullable();
             $table->timestamps();
         });
     }

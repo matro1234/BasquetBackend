@@ -16,7 +16,8 @@ class Delegado extends Model
         "celular",
         "fechaNacimiento",
         "nacionalidad",
-        "genero"
+        "genero",
+        "api_token"
     ];
     protected $hidden = ['created_at','updated_at'];
 
